@@ -1,15 +1,22 @@
+
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(Coba());
 }
 
+// ==================== WARNA ====================
+
 const Color sageBackground = Color(0xFFE8F3E8);
 const Color sageAppBar = Color(0xFFD4E8D4);
 const Color sageDark = Color(0xFF355E3B);
 const Color sageBorder = Color(0xFFB7CDB7);
 
+// ==================== APLIKASI ====================
+
 class Coba extends StatelessWidget {
+  const Coba({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,9 +24,7 @@ class Coba extends StatelessWidget {
       title: 'Sumber Umbulan Langlang',
       theme: ThemeData(
         scaffoldBackgroundColor: sageBackground,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: sageDark,
-        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: sageDark),
         useMaterial3: true,
       ),
       home: LoginPage(),
@@ -30,14 +35,18 @@ class Coba extends StatelessWidget {
 // ==================== HALAMAN LOGIN ====================
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController usernameController =
+      TextEditingController();
 
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController passwordController =
+      TextEditingController();
 
   bool obscurePassword = true;
   String errorMessage = '';
@@ -75,17 +84,17 @@ class _LoginPageState extends State<LoginPage> {
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            padding: EdgeInsets.all(24),
+            padding: const EdgeInsets.all(24),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
+                const Icon(
                   Icons.water_drop,
                   size: 85,
                   color: sageDark,
                 ),
-                SizedBox(height: 12),
-                Text(
+                const SizedBox(height: 12),
+                const Text(
                   'Sumber Umbulan',
                   style: TextStyle(
                     fontSize: 28,
@@ -93,18 +102,19 @@ class _LoginPageState extends State<LoginPage> {
                     color: sageDark,
                   ),
                 ),
-                SizedBox(height: 8),
-                Text(
+                const SizedBox(height: 8),
+                const Text(
                   'Langlang, Singosari, Malang',
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.black54,
                   ),
                 ),
-                SizedBox(height: 32),
+                const SizedBox(height: 32),
+
                 Container(
                   width: double.infinity,
-                  padding: EdgeInsets.all(24),
+                  padding: const EdgeInsets.all(24),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
@@ -113,14 +123,14 @@ class _LoginPageState extends State<LoginPage> {
                       BoxShadow(
                         color: sageDark.withOpacity(0.08),
                         blurRadius: 15,
-                        offset: Offset(0, 5),
+                        offset: const Offset(0, 5),
                       ),
                     ],
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Center(
+                      const Center(
                         child: Text(
                           'Login',
                           style: TextStyle(
@@ -130,29 +140,26 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 8),
-                      Center(
+                      const SizedBox(height: 8),
+                      const Center(
                         child: Text(
                           'Masuk untuk melihat informasi wisata',
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black54,
-                          ),
+                          style: TextStyle(color: Colors.black54),
                         ),
                       ),
-                      SizedBox(height: 28),
-                      Text(
+                      const SizedBox(height: 28),
+
+                      const Text(
                         'Username',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                        ),
+                        style: TextStyle(fontWeight: FontWeight.w600),
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       TextField(
                         controller: usernameController,
                         decoration: InputDecoration(
                           hintText: 'Masukkan username',
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.person_outline,
                             color: sageDark,
                           ),
@@ -161,28 +168,27 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: sageDark,
                               width: 2,
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(height: 18),
-                      Text(
+
+                      const SizedBox(height: 18),
+                      const Text(
                         'Password',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                        ),
+                        style: TextStyle(fontWeight: FontWeight.w600),
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       TextField(
                         controller: passwordController,
                         obscureText: obscurePassword,
                         onSubmitted: (_) => login(),
                         decoration: InputDecoration(
                           hintText: 'Masukkan password',
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.lock_outline,
                             color: sageDark,
                           ),
@@ -203,24 +209,26 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: sageDark,
                               width: 2,
                             ),
                           ),
                         ),
                       ),
+
                       if (errorMessage.isNotEmpty) ...[
-                        SizedBox(height: 14),
+                        const SizedBox(height: 14),
                         Text(
                           errorMessage,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.red,
                             fontSize: 13,
                           ),
                         ),
                       ],
-                      SizedBox(height: 24),
+
+                      const SizedBox(height: 24),
                       SizedBox(
                         width: double.infinity,
                         height: 50,
@@ -233,7 +241,7 @@ class _LoginPageState extends State<LoginPage> {
                               borderRadius: BorderRadius.circular(12),
                             ),
                           ),
-                          child: Text(
+                          child: const Text(
                             'Masuk',
                             style: TextStyle(
                               fontSize: 16,
@@ -245,8 +253,9 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 24),
-                Text(
+
+                const SizedBox(height: 24),
+                const Text(
                   'Jelajahi keindahan alam Sumber Umbulan',
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -268,7 +277,8 @@ class _LoginPageState extends State<LoginPage> {
 class HalamanWisata extends StatefulWidget {
   final String namaPengguna;
 
-  HalamanWisata({
+  const HalamanWisata({
+    super.key,
     required this.namaPengguna,
   });
 
@@ -288,9 +298,11 @@ class _HalamanWisataState extends State<HalamanWisata> {
     super.initState();
 
     _scrollController.addListener(() {
-      bool title = _scrollController.offset > 100;
-      bool history = _scrollController.offset > 250;
-      bool contact = _scrollController.offset > 600;
+      final offset = _scrollController.offset;
+
+      final title = offset > 10;
+      final history = offset > 40;
+      final contact = offset > 80;
 
       if (title != showTitle ||
           history != showHistory ||
@@ -310,16 +322,19 @@ class _HalamanWisataState extends State<HalamanWisata> {
     super.dispose();
   }
 
+  // Teks tetap terlihat.
+  // Animasi hanya mengubah posisi sedikit dan tingkat opacity.
   Widget animasi({
     required bool tampil,
     required Widget child,
   }) {
     return AnimatedOpacity(
-      duration: Duration(milliseconds: 700),
-      opacity: tampil ? 1.0 : 0.0,
+      duration: const Duration(milliseconds: 350),
+      opacity: tampil ? 1.0 : 0.85,
       child: AnimatedSlide(
-        duration: Duration(milliseconds: 700),
-        offset: tampil ? Offset.zero : Offset(0, 0.2),
+        duration: const Duration(milliseconds: 350),
+        curve: Curves.easeOut,
+        offset: tampil ? Offset.zero : const Offset(0, 0.025),
         child: child,
       ),
     );
@@ -330,46 +345,67 @@ class _HalamanWisataState extends State<HalamanWisata> {
     return Scaffold(
       backgroundColor: sageBackground,
       appBar: AppBar(
-        title: Text('Sumber Umbulan Langlang'),
+        title: const Text('Sumber Umbulan Langlang'),
         backgroundColor: sageAppBar,
         foregroundColor: sageDark,
         actions: [
           IconButton(
             tooltip: 'Keluar',
-            icon: Icon(Icons.logout),
+            icon: const Icon(Icons.logout),
             onPressed: () {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => LoginPage(),
+                  builder: (context) => const LoginPage(),
                 ),
               );
             },
           ),
         ],
       ),
+
       body: SingleChildScrollView(
         controller: _scrollController,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // FOTO WISATA
-            SizedBox(
+
+            Image.asset(
+              'assets/sumber umbulan.webp',
+              height: 250,
               width: double.infinity,
-              child: Image.asset(
-                'assets/sumber umbulan.webp',
-                height: 250,
-                fit: BoxFit.cover,
-              ),
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return Container(
+                  height: 250,
+                  color: sageAppBar,
+                  alignment: Alignment.center,
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.image_not_supported,
+                        size: 45,
+                        color: sageDark,
+                      ),
+                      SizedBox(height: 8),
+                      Text('Foto wisata tidak ditemukan'),
+                    ],
+                  ),
+                );
+              },
             ),
 
             // SAPAAN PENGGUNA
+
             Container(
               width: double.infinity,
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: Text(
                 'Selamat datang, ${widget.namaPengguna}!',
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
                   color: sageDark,
@@ -378,11 +414,12 @@ class _HalamanWisataState extends State<HalamanWisata> {
             ),
 
             // JUDUL SEJARAH
+
             animasi(
               tampil: showTitle,
               child: Container(
-                padding: EdgeInsets.all(16),
-                child: Text(
+                padding: const EdgeInsets.all(16),
+                child: const Text(
                   'Sejarah Singkat Sumber Umbulan Langlang',
                   style: TextStyle(
                     fontSize: 22,
@@ -394,12 +431,13 @@ class _HalamanWisataState extends State<HalamanWisata> {
               ),
             ),
 
-            // SEJARAH
+            // ISI SEJARAH
+
             animasi(
               tampil: showHistory,
               child: Container(
-                padding: EdgeInsets.fromLTRB(16, 0, 16, 20),
-                child: Text(
+                padding: const EdgeInsets.fromLTRB(16, 0, 16, 20),
+                child: const Text(
                   'Sumber Umbulan merupakan mata air alami yang berada di '
                   'kawasan Langlang, Kecamatan Singosari, Kabupaten Malang, '
                   'Jawa Timur. Tempat ini dikenal karena airnya yang jernih, '
@@ -426,12 +464,13 @@ class _HalamanWisataState extends State<HalamanWisata> {
               ),
             ),
 
-            // LOKASI DAN KONTAK
+            // KARTU LOKASI DAN KONTAK
+
             animasi(
               tampil: showContact,
               child: Container(
-                margin: EdgeInsets.all(16),
-                padding: EdgeInsets.all(16),
+                margin: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   border: Border.all(
@@ -440,126 +479,161 @@ class _HalamanWisataState extends State<HalamanWisata> {
                   ),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // LOKASI
-                    Expanded(
-                      child: Column(
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    // Menyesuaikan tampilan untuk layar HP yang sempit.
+                    if (constraints.maxWidth < 350) {
+                      return const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Lokasi',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: sageDark,
-                            ),
-                          ),
-                          SizedBox(height: 8),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.location_on,
-                                size: 22,
-                                color: sageDark,
-                              ),
-                              SizedBox(width: 8),
-                              Expanded(
-                                child: Text(
-                                  'Sumber Umbulan\n'
-                                  'Langlang, Kecamatan Singosari,\n'
-                                  'Kabupaten Malang,\n'
-                                  'Jawa Timur',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    height: 1.5,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                          LokasiWisata(),
+                          SizedBox(height: 20),
+                          Divider(color: sageBorder),
+                          SizedBox(height: 12),
+                          KontakWisata(),
                         ],
-                      ),
-                    ),
+                      );
+                    }
 
-                    // GARIS PEMISAH
-                    Container(
-                      height: 130,
-                      width: 1,
-                      color: sageBorder,
-                      margin: EdgeInsets.symmetric(
-                        horizontal: 16,
-                      ),
-                    ),
-
-                    // KONTAK
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Contact Saya',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: sageDark,
-                            ),
+                    return Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Expanded(
+                          child: LokasiWisata(),
+                        ),
+                        Container(
+                          height: 145,
+                          width: 1,
+                          color: sageBorder,
+                          margin: const EdgeInsets.symmetric(
+                            horizontal: 12,
                           ),
-                          SizedBox(height: 12),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.phone,
-                                size: 20,
-                                color: sageDark,
-                              ),
-                              SizedBox(width: 8),
-                              Expanded(
-                                child: Text(
-                                  '085856212688',
-                                  style: TextStyle(fontSize: 14),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 12),
-                          Container(
-                            height: 1,
-                            color: sageBorder,
-                          ),
-                          SizedBox(height: 12),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.email,
-                                size: 20,
-                                color: sageDark,
-                              ),
-                              SizedBox(width: 8),
-                              Expanded(
-                                child: Text(
-                                  'insaninkamiliaannisaa@gmail.com',
-                                  style: TextStyle(fontSize: 14),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                        ),
+                        const Expanded(
+                          child: KontakWisata(),
+                        ),
+                      ],
+                    );
+                  },
                 ),
               ),
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
           ],
         ),
       ),
+    );
+  }
+}
+
+// ==================== BAGIAN LOKASI ====================
+
+class LokasiWisata extends StatelessWidget {
+  const LokasiWisata({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Lokasi',
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: sageDark,
+          ),
+        ),
+        const SizedBox(height: 8),
+        const Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(
+              Icons.location_on,
+              size: 22,
+              color: sageDark,
+            ),
+            SizedBox(width: 6),
+            Expanded(
+              child: Text(
+                'Sumber Umbulan\n'
+                'Langlang, Kecamatan Singosari,\n'
+                'Kabupaten Malang,\n'
+                'Jawa Timur',
+                style: TextStyle(
+                  fontSize: 14,
+                  height: 1.5,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+// ==================== BAGIAN KONTAK ====================
+
+class KontakWisata extends StatelessWidget {
+  const KontakWisata({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Contact Saya',
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: sageDark,
+          ),
+        ),
+        const SizedBox(height: 12),
+        const Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(
+              Icons.phone,
+              size: 20,
+              color: sageDark,
+            ),
+            SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                '085856212688',
+                style: TextStyle(fontSize: 14),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 12),
+        Container(
+          height: 1,
+          color: sageBorder,
+        ),
+        const SizedBox(height: 12),
+        const Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(
+              Icons.email,
+              size: 20,
+              color: sageDark,
+            ),
+            SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                'insaninkamiliaannisaa@gmail.com',
+                style: TextStyle(fontSize: 14),
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
